@@ -1,0 +1,49 @@
+<!-- כאן הצגת תפקידי העובד -->
+<h1>Employee Positions:</h1>
+<div *ngFor="let positionGroup of positionGroups; let i = index" [formGroup]="positionGroup">
+  <div class="card mb-3 mx-auto" style="width: 80%;">
+    <div class="card-body">
+      <p class="card-title">Positio {{i+1}}:</p>
+      <mat-form-field>
+        <mat-label>Position</mat-label>
+        <mat-select id="positionId" name="positionId" formControlName="positionId" required>
+          <mat-option *ngFor="let position of positions" [value]="position.id">{{ position.positionName }}</mat-option>
+        </mat-select>
+        <mat-error
+          *ngIf="positionGroup.controls['positionId']?.invalid && (positionGroup.controls['positionId']?.dirty || positionGroup.controls['positionId']?.touched)">
+          <span *ngIf="positionGroup.controls['positionId']?.errors?.['required']">Position is required</span>
+          <span *ngIf="positionGroup.controls['positionId']?.errors?.['positionAlreadyExists']">This position already
+            exists</span>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <mat-checkbox formControlName="admin">Admin</mat-checkbox>
+      <br>
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="entryDatePicker" id="entryDate" name="entryDate" formControlName="entryDate"
+          placeholder="Entry Date" required>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="entryDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #entryDatePicker></mat-datepicker>
+        <mat-error
+          *ngIf="positionGroup.controls['entryDate']?.invalid && (positionGroup.controls['entryDate']?.dirty || positionGroup.controls['entryDate']?.touched)">
+          <span *ngIf="positionGroup.controls['entryDate']?.errors?.['required']">Entry Date is required</span>
+          <span *ngIf="positionGroup.controls['entryDate']?.errors?.['entryDateInvalid']">Entry date must be after start
+            date</span>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <button class="btn btn-danger" (click)="deletePosition(i)">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-primary" type="button" (click)="addPosition()">+ Add Position</button>
+  <button class="btn btn-primary" *ngIf="positionGroups.length>=1" type="button" (click)="save()"
+    [disabled]="isInvalid()">Save</button>
+</div>
+
+<br>

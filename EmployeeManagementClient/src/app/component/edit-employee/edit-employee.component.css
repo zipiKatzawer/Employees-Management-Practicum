@@ -1,0 +1,10 @@
+.mat-typography {
+  max-height: 500px;
+  width: 600px;
+  overflow-y: auto;
+  /* הוספת גלגול רק כאשר התוכן גדול מהאלמנט */
+}
+
+mat-form-field {
+  width: 80%;
+}

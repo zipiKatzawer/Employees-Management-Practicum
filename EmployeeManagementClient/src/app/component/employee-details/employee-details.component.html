@@ -1,0 +1,10 @@
+<td>{{ employee.firstName }}</td>
+<td>{{ employee.lastName }}</td>
+<td>{{ employee.tz }}</td>
+<td>{{ employee.startDate }}</td>
+<td style="text-align: center;">
+    <i class="bi bi-pencil-square" (click)="openEditEmployeeDialog()"></i>
+</td>
+<td style="text-align: center;">
+    <mat-icon class="material-icons" (click)="deleteEmployee()">delete</mat-icon>
+</td>

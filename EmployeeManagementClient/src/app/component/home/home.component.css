@@ -1,0 +1,23 @@
+#homePage {
+  /* background-image: url('../../../assets/images/AdobeStock_605385956_Preview.jpeg');
+  background-size: cover;
+  background-position-x: center;
+  background-attachment: fixed;
+  min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* סידור התוכן בצד שמאל */
+  padding-left: 150px;
+  /* הוספת מרווח בצד שמאל */
+  /* padding-top: 100px; */
+}
+
+h1 {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 120px;
+  color: #3e6282;
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,19 @@
+<mat-toolbar>
+  <a mat-button class="link" [routerLink]="['/login']">
+    <i class="material-icons">person</i>
+    <span class="text">SignIn</span>
+  </a>
+  <a mat-button class="link" [routerLink]="['/employee-list']">
+    <i class="material-icons">list</i>
+    <span class="text">All Employees</span>
+  </a>
+  <a mat-button class="link" [routerLink]="['/add-employee']">
+    <i class="material-icons">add</i>
+    <span class="text">Add Employee</span>
+  </a>
+  <a mat-button class="link" [routerLink]="['/logout']">
+    <i class="material-icons">logout</i>
+    <span class="text">SignOut</span>
+  </a>
+  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home" [routerLink]="['/home']"></mat-icon>
+</mat-toolbar>

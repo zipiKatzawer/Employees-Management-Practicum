@@ -1,0 +1,82 @@
+<h1 mat-dialog-title>Edit Employee</h1>
+<div mat-dialog-content class="mat-typography">
+    <form [formGroup]="employeeForm" (ngSubmit)="updateEmployee()">
+        <mat-form-field>
+            <input matInput type="text" id="tz" name="tz" formControlName="tz" placeholder="TZ" required>
+            <mat-error
+                *ngIf="employeeForm.controls['tz']?.invalid && (employeeForm.controls['tz']?.dirty || employeeForm.controls['tz']?.touched)">
+                <span *ngIf="employeeForm.controls['tz']?.errors?.['required']">TZ is required</span>
+                <span *ngIf="employeeForm.controls['tz']?.errors?.['pattern']">TZ must contain exactly 9 digits</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput type="text" id="firstName" name="firstName" formControlName="firstName"
+                placeholder="First Name" required>
+            <mat-error
+                *ngIf="employeeForm.controls['firstName']?.invalid && (employeeForm.controls['firstName']?.dirty || employeeForm.controls['firstName']?.touched)">
+                <span *ngIf="employeeForm.controls['firstName']?.errors?.['required']">First Name is required</span>
+                <span *ngIf="employeeForm.controls['firstName']?.errors?.['pattern']">First Name must contain only
+                    letters</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput type="text" id="lastName" name="lastName" formControlName="lastName" placeholder="Last Name"
+                required>
+            <mat-error
+                *ngIf="employeeForm.controls['lastName']?.invalid && (employeeForm.controls['lastName']?.dirty || employeeForm.controls['lastName']?.touched)">
+                <span *ngIf="employeeForm.controls['lastName']?.errors?.['required']">Last Name is required</span>
+                <span *ngIf="employeeForm.controls['lastName']?.errors?.['pattern']">Last Name must contain only
+                    letters</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="dateBirthPicker" id="dateBirth" name="dateBirth"
+                formControlName="dateBirth" placeholder="Date of Birth" required>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="dateBirthPicker"></mat-datepicker-toggle>
+            <mat-datepicker #dateBirthPicker></mat-datepicker>
+            <mat-error
+                *ngIf="employeeForm.controls['dateBirth']?.invalid && (employeeForm.controls['dateBirth']?.dirty || employeeForm.controls['dateBirth']?.touched)">
+                <span *ngIf="employeeForm.controls['dateBirth']?.errors?.['required']">Date of Birth is required</span>
+                <span *ngIf="employeeForm.controls['dateBirth']?.errors?.['dateOfBirthInvalid']">Employee must be at
+                    least 18 years old</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="startDatePicker" id="startDate" name="startDate"
+                formControlName="startDate" placeholder="Start Date" required>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #startDatePicker></mat-datepicker>
+            <mat-error
+                *ngIf="employeeForm.controls['startDate']?.invalid && (employeeForm.controls['startDate']?.dirty || employeeForm.controls['startDate']?.touched)">
+                <span *ngIf="employeeForm.controls['startDate']?.errors?.['required']">Start Date is required</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field>
+            <mat-label>Gender</mat-label>
+            <mat-select id="gender" name="gender" formControlName="gender" required>
+                <mat-option [value]="0">Male</mat-option>
+                <mat-option [value]="1">Female</mat-option>
+            </mat-select>
+            <mat-error
+                *ngIf="employeeForm.controls['gender']?.invalid && (employeeForm.controls['gender']?.dirty || employeeForm.controls['gender']?.touched)">
+                <span *ngIf="employeeForm.controls['gender']?.errors?.['required']">Gender is required</span>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <app-edit-employee-position *ngIf="isPossible" [employee]="employee"
+            (savePositionData)="savePositionDataHandler($event);"></app-edit-employee-position>
+
+        <button mat-raised-button type="submit" [disabled]="isInvalid()">Update Employee</button>
+    </form>
+
+</div>

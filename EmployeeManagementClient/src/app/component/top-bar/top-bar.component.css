@@ -1,0 +1,40 @@
+/* .example-spacer {
+    flex: 1 1 auto;
+  } */
+.mat-toolbar {
+  /* background-color:rgb(95, 169, 167);  */
+  background-color: #5792b2;
+  opacity: 0.9;
+  /* color: white; */
+  height: 80px;
+}
+
+.link {
+  color: black;
+  font-size: 18px;
+  margin-right: 10px;
+  text-decoration: none;
+  /* מונע קווים מתחת לקישור */
+}
+
+.link:hover {
+  text-decoration: none;
+  /* מונע קווים מתחת לקישור גם במצב העברת העכבר מעליו */
+}
+
+.text {
+  vertical-align: middle;
+  /* מכוון את הטקסט למרכז באותה שורה עם האיקון */
+}
+
+.material-icons {
+  vertical-align: middle;
+  /* מכוון את האיקון למרכז באותה שורה עם הטקסט */
+}
+
+mat-icon {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 27px;
+}

@@ -1,0 +1,50 @@
+.body {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+table {
+    border-collapse: collapse;
+    width: 95%;
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    background-color: white;
+    /* max-height: 500px;
+    overflow: auto; */
+}
+
+th,
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #dddddd;
+}
+
+.mat-mdc-form-field {
+    font-size: 14px;
+    /* width: 100%; */
+}
+
+#search {
+    margin-left: auto;
+    margin-right: 2.5%;
+    margin-bottom: 10px;
+}
+
+.button {
+    /* margin-bottom: 10px; */
+    margin-left: 2.5%;
+    margin-right: auto;
+
+}
